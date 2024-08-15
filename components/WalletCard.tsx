@@ -13,6 +13,7 @@ import {
 import { Eye, EyeIcon, Trash2 } from "lucide-react";
 import { CanvasRevealEffect } from "./ui/canvas-reveal-effect";
 import { AnimatePresence, motion } from "framer-motion";
+import toast from "react-hot-toast";
 
 type Props = {
   setWallets: React.Dispatch<React.SetStateAction<Wallet[]>>;
@@ -47,6 +48,7 @@ export function WalletCard({ wallet, index, setWallets, wallets }: Props) {
                 );
                 setWallets([...updatedWallets]);
                 localStorage.setItem("wallets", JSON.stringify(updatedWallets));
+                toast.success("Wallet Deleted!");
               }}
             >
               <Trash2 className="h-3  w-4" />
